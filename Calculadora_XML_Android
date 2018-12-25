@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top">
+
+	<EditText
+		android:id="@+id/num1_visor"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:numeric="decimal"/>
+
+	<EditText
+		android:id="@+id/num2_visor"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:numeric="decimal"
+		android:layout_below="@+id/num1_visor"/>
+
+	<Button
+		android:id="@+id/sum"
+		android:layout_height="wrap_content"
+		android:layout_width="80sp"
+		android:text="+"
+		android:layout_below="@+id/num2_visor"
+		android:onClick="Sum"/>
+
+	<Button
+		android:id="@+id/minus"
+		android:layout_height="wrap_content"
+		android:layout_width="80sp"
+		android:text="-"
+		android:layout_below="@+id/num2_visor"
+		android:layout_toRightOf="@+id/sum"
+		android:onClick="Minus"/>
+	
+	<Button
+		android:id="@+id/mult"
+		android:layout_height="wrap_content"
+		android:layout_width="80sp"
+		android:text="*"
+		android:layout_below="@+id/num2_visor"
+		android:layout_toRightOf="@+id/minus"
+		android:onClick="Mult"/>
+	
+	<Button
+		android:id="@+id/divid"
+		android:layout_height="wrap_content"
+		android:layout_width="80sp"
+		android:text="/"
+		android:layout_below="@+id/num2_visor"
+		android:layout_toRightOf="@+id/mult"
+		android:onClick="Divid"/>
+	
+	<Button
+		android:id="@+id/clear"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:text="Limpar"
+		android:layout_below="@+id/sum"
+		android:onClick="Clear"/>
+		
+</RelativeLayout>
