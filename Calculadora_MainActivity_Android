@@ -1,0 +1,104 @@
+package com.myexample.mycalculadora;
+/* Dúvidas: 
+	por que o printStackTrace() corrigiu os erros  sendo servem apenas pra mostrar os mesmos 
+	finally 
+	view view dos parâmetros
+	por que das intents ser daquele jeito e se a outro modo */
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Button;
+import android.content.Intent;
+import org.apache.http.conn.util.*;
+
+public class MainActivity extends Activity 
+{
+	private double num1, num2, result;
+	private EditText num1_visor, num2_visor;
+	private Button sum, minus, mult, divid;
+	private String vazio = "";
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+		num1_visor = findViewById(R.id.num1_visor);
+		num2_visor = findViewById(R.id.num2_visor);
+		sum = findViewById(R.id.sum);
+		minus = findViewById(R.id.minus);
+		mult = findViewById(R.id.mult);
+		divid = findViewById(R.id.divid);
+    }
+	
+	public void Inserir()
+	{
+		num1 = Double.parseDouble(num1_visor.getText().toString());
+		num2 = Double.parseDouble(num2_visor.getText().toString());
+	}
+	
+	public void Sum(View view)
+	{
+		try
+		{
+			Inserir();
+			result = num1 + num2;
+			Intent i = new Intent(MainActivity.this, ResultActivity.class);
+			i.putExtra("text_result", "" + result);
+			startActivity(i);
+		}
+			
+		catch(Exception e){e.printStackTrace();}
+	}
+	
+	public void Minus(View view)
+	{
+		try
+		{
+			Inserir();
+			result = num1 - num2;
+			Intent i = new Intent(MainActivity.this, ResultActivity.class);
+			i.putExtra("text_result", "" + result);
+			startActivity(i);
+		}
+		
+		catch(Exception a){a.printStackTrace();}
+	}
+	
+	public void Mult(View view)
+	{
+		try
+		{
+			Inserir();
+			result = num1 * num2;
+			Intent i = new Intent(MainActivity.this, ResultActivity.class);
+			i.putExtra("text_result", "" + result);
+			startActivity(i);
+		}
+		
+		catch(Exception b){b.printStackTrace();}
+	}
+	
+	public void Divid(View view)
+	{
+		try
+		{
+			Inserir();
+			result = num1 / num2;
+			Intent i = new Intent(MainActivity.this, ResultActivity.class);
+			i.putExtra("text_result", "" + result);
+			startActivity(i);
+		}
+		
+		catch(Exception c){c.printStackTrace();}
+	}
+	
+	public void Clear(View view)
+	{
+		num1_visor.setText(String.valueOf(vazio));
+		num2_visor.setText(String.valueOf(vazio));
+	}
+}
